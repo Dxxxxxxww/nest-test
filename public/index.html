@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang='en'>
+<head>
+  <meta charset='UTF-8'>
+  <meta name='viewport'
+        content='width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0'>
+  <meta http-equiv='X-UA-Compatible' content='ie=edge'>
+  <title>Document</title>
+  <script src="https://unpkg.com/axios@0.24.0/dist/axios.min.js"></script>
+  <script src="https://unpkg.com/qs@6.10.2/dist/qs.js"></script>
+</head>
+<body>
+  hello
+<script>
+  // param
+  // async function getUrlParam() {
+  //   const data = await axios.get('/bbb/123')
+  //   console.log(data)
+  // }
+  // getUrlParam()
+
+  // query
+  // async function getUrlQuery() {
+  //   const data = await axios.get('/bbb/find_by', {
+  //     params: {
+  //       name: '董',
+  //       age: 18
+  //     }
+  //   })
+  //   console.log(data)
+  // }
+  // getUrlQuery()
+
+  // form-urlencoded
+  // async function getFormUrlEncoded() {
+  //   const data = await axios.post('/bbb', Qs.stringify({
+  //     name: '董',
+  //     age: 18
+  //   }), {
+  //     headers: {'content-type': 'application/x-www-form-urlencoded'}
+  //   })
+  //   console.log(data)
+  // }
+  // getFormUrlEncoded()
+
+  // json
+  async function getJson() {
+    // axios.post 默认是 json
+    const data = await axios.post('/bbb', {
+      name: '董',
+      age: 18
+    })
+    console.log(data)
+  }
+  getJson()
+</script>
+</body>
+</html>
