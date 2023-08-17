@@ -1,9 +1,21 @@
-import { Injectable } from '@nestjs/common';
+import {
+  Injectable,
+  OnModuleInit,
+  OnApplicationBootstrap
+} from '@nestjs/common';
 import { CreateBbbDto } from './dto/create-bbb.dto';
 import { UpdateBbbDto } from './dto/update-bbb.dto';
 
 @Injectable()
-export class BbbService {
+export class BbbService implements OnApplicationBootstrap, OnModuleInit {
+  onModuleInit(): any {
+    console.log('BbbService onModuleInit');
+  }
+
+  onApplicationBootstrap(): any {
+    console.log('BbbService OnApplicationBootstrap');
+  }
+
   create(createBbbDto: CreateBbbDto) {
     return `This action adds a new bbb ${JSON.stringify(createBbbDto)}`;
   }
@@ -17,7 +29,7 @@ export class BbbService {
   }
 
   update(id: number, updateBbbDto: UpdateBbbDto) {
-    return `This action updates a #${id} bbb`;
+    return `This action updates a #${id} bbb ${updateBbbDto}`;
   }
 
   remove(id: number) {

@@ -6,15 +6,25 @@ import {
   Patch,
   Param,
   Delete,
-  Query
+  Query,
+  OnModuleInit,
+  OnApplicationBootstrap
 } from '@nestjs/common';
 import { BbbService } from './bbb.service';
 import { CreateBbbDto } from './dto/create-bbb.dto';
 import { UpdateBbbDto } from './dto/update-bbb.dto';
 
 @Controller('bbb')
-export class BbbController {
+export class BbbController implements OnModuleInit, OnApplicationBootstrap {
   constructor(private readonly bbbService: BbbService) {}
+
+  onModuleInit(): void {
+    console.log('BbbController onModuleInit');
+  }
+
+  onApplicationBootstrap(): void {
+    console.log('BbbController OnApplicationBootstrap');
+  }
 
   // form urlencoded 和 json 都是从 body 取值，Nest 内部会根据 content-type 做区分，使用不同的解析方式。
   @Post()
